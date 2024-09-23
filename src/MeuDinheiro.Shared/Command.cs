@@ -6,13 +6,13 @@ namespace MeuDinheiro.Shared
     {
         public List<string> Errors { get; protected set; } = new List<string>();
 
-        public bool IsValid => Errors.Count() > 0;
+        public bool IsValid => Errors.Count() > 0 ? false : true;
 
         protected void AddError(string error)
         {
             Errors.Add(error);
         }
 
-        public abstract bool Validate();
+        public abstract void Validate();
     }
 }

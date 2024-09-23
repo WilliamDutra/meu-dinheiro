@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MeuDinheiro.Shared\MeuDinheiro.Shared.csproj" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MeuDinheiro.Dominio\MeuDinheiro.Dominio.csproj" />
   </ItemGroup>
 
 </Project>
