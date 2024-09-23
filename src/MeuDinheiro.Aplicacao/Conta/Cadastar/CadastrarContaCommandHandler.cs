@@ -22,6 +22,7 @@ namespace MeuDinheiro.Aplicacao.Conta.Cadastar
                 return new CommandResult(true, string.Join(",", command.Errors.ToArray()));
 
             var conta = MeuDinheiro.Dominio.Conta.Criar(command.Nome);
+            _contaRepositorio.Salvar(conta);
 
             return new CommandResult(true, "Conta criada com sucesso!");
         }

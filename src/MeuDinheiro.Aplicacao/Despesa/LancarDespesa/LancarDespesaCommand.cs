@@ -12,9 +12,14 @@ namespace MeuDinheiro.Aplicacao.Despesa.LancarDespesa
 
         public ETipoDespesa Tipo { get; set; }
 
-        public override bool Validate()
+        public override void Validate()
         {
-            throw new NotImplementedException();
+            var validator = new LancarDespesaCommandValidation();
+            var validate = validator.Validate(this);
+            foreach (var erro in validate.Errors)
+            {
+                AddError(erro.ErrorMessage);
+            }
         }
     }
 }

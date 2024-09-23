@@ -7,9 +7,14 @@ namespace MeuDinheiro.Aplicacao.Conta.Cadastar
     {
         public string Nome { get; set; }
 
-        public override bool Validate()
+        public override void Validate()
         {
-            throw new NotImplementedException();
+            var validator = new CadastrarContaCommandValidation();
+            var validate = validator.Validate(this);
+            foreach (var erro in validate.Errors)
+            {
+                AddError(erro.ErrorMessage);
+            }
         }
     }
 }
