@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>20ba1bfa-ca09-444b-b5ff-48f82762baf4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MeuDinheiro.Aplicacao\MeuDinheiro.Aplicacao.csproj" />
+    <ProjectReference Include="..\MeuDinheiro.Data\MeuDinheiro.Data.csproj" />
+  </ItemGroup>
+
+</Project>
