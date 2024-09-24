@@ -9,11 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeuDinheiro.Aplicacao", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeuDinheiro.Dominio", "src\MeuDinheiro.Dominio\MeuDinheiro.Dominio.csproj", "{8F5C1AB6-9103-4642-85A2-2D349F2C0D54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDinheiro.Data", "src\MeuDinheiro.Data\MeuDinheiro.Data.csproj", "{E0568297-9D21-4FAB-B40F-2C8E32CAA46E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeuDinheiro.Data", "src\MeuDinheiro.Data\MeuDinheiro.Data.csproj", "{E0568297-9D21-4FAB-B40F-2C8E32CAA46E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDinheiro.Api", "src\MeuDinheiro.Api\MeuDinheiro.Api.csproj", "{A8D99A1D-986F-45F8-96E9-EEFD5D540D91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeuDinheiro.Api", "src\MeuDinheiro.Api\MeuDinheiro.Api.csproj", "{A8D99A1D-986F-45F8-96E9-EEFD5D540D91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDinheiro.Identidade.Api", "src\MeuDinheiro.Identidade.Api\MeuDinheiro.Identidade.Api.csproj", "{E383FB8B-48B2-4613-8DE8-E0885B75610C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeuDinheiro.Identidade.Api", "src\MeuDinheiro.Identidade.Api\MeuDinheiro.Identidade.Api.csproj", "{E383FB8B-48B2-4613-8DE8-E0885B75610C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDinheiro.WasmApp", "src\MeuDinheiro.WasmApp\MeuDinheiro.WasmApp.csproj", "{5B3B54C2-30E2-4CF9-BD77-5969BE2D8CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDinheiro.Sdk.WasmApp", "src\MeuDinheiro.Sdk.WasmApp\MeuDinheiro.Sdk.WasmApp.csproj", "{B30BFB97-9807-4C5F-BD9A-84CA58C85C4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDinheiro.Identidade", "src\MeuDinheiro.Identidade\MeuDinheiro.Identidade.csproj", "{9AE0831B-0E3F-4797-84E4-0A81F4004D1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identidade", "Identidade", "{EFD7DC82-4C31-4B78-9B60-E95ACD349795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +53,25 @@ Global
 		{E383FB8B-48B2-4613-8DE8-E0885B75610C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E383FB8B-48B2-4613-8DE8-E0885B75610C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E383FB8B-48B2-4613-8DE8-E0885B75610C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B3B54C2-30E2-4CF9-BD77-5969BE2D8CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B3B54C2-30E2-4CF9-BD77-5969BE2D8CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B3B54C2-30E2-4CF9-BD77-5969BE2D8CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B3B54C2-30E2-4CF9-BD77-5969BE2D8CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30BFB97-9807-4C5F-BD9A-84CA58C85C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30BFB97-9807-4C5F-BD9A-84CA58C85C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30BFB97-9807-4C5F-BD9A-84CA58C85C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30BFB97-9807-4C5F-BD9A-84CA58C85C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AE0831B-0E3F-4797-84E4-0A81F4004D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AE0831B-0E3F-4797-84E4-0A81F4004D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AE0831B-0E3F-4797-84E4-0A81F4004D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AE0831B-0E3F-4797-84E4-0A81F4004D1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E383FB8B-48B2-4613-8DE8-E0885B75610C} = {EFD7DC82-4C31-4B78-9B60-E95ACD349795}
+		{9AE0831B-0E3F-4797-84E4-0A81F4004D1C} = {EFD7DC82-4C31-4B78-9B60-E95ACD349795}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {942C4C54-224A-4B96-BFF1-5130F4D5D264}

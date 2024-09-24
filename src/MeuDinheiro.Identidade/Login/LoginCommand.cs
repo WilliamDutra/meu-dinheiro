@@ -1,6 +1,6 @@
 ﻿using MeuDinheiro.Shared;
 
-namespace MeuDinheiro.Identidade.Api.Identidade.Login
+namespace MeuDinheiro.Identidade.Login
 {
     public class LoginCommand : Command
     {

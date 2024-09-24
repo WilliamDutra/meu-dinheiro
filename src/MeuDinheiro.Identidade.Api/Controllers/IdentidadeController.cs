@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using MeuDinheiro.Identidade.Api.Identidade.Registrar;
-using MeuDinheiro.Identidade.Api.Identidade.Login;
+using MeuDinheiro.Identidade.Login;
+using MeuDinheiro.Identidade.Registrar;
 
 namespace MeuDinheiro.Identidade.Api.Controllers
 {
@@ -11,11 +11,11 @@ namespace MeuDinheiro.Identidade.Api.Controllers
      
         private readonly ILogger<IdentidadeController> _logger;
 
-        private RegistrarCommandHandler _registrarHandler;
+        private IRegistrarHandler _registrarHandler;
 
-        private LoginCommandHandler _loginHandler;
+        private ILoginHandler _loginHandler;
         
-        public IdentidadeController(ILogger<IdentidadeController> logger, RegistrarCommandHandler registrarHandler, LoginCommandHandler loginHandler)
+        public IdentidadeController(ILogger<IdentidadeController> logger, IRegistrarHandler registrarHandler, ILoginHandler loginHandler)
         {
             _logger = logger;
             _registrarHandler = registrarHandler;
@@ -39,7 +39,7 @@ namespace MeuDinheiro.Identidade.Api.Controllers
             var resultado = _loginHandler.Handle(command);
             if (!resultado.IsSuccess)
                 return BadRequest(resultado.Message);
-            return Ok(resultado.Message);
+            return Ok(resultado);
         }
     }
 

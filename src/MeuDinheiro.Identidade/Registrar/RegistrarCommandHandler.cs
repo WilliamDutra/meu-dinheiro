@@ -1,9 +1,10 @@
 ﻿using MeuDinheiro.Shared;
 using Microsoft.AspNetCore.Identity;
+using MeuDinheiro.Identidade.Identity;
 
-namespace MeuDinheiro.Identidade.Api.Identidade.Registrar
+namespace MeuDinheiro.Identidade.Registrar
 {
-    public class RegistrarCommandHandler : ICommandHandler<RegistrarCommand, CommandResult>
+    public class RegistrarCommandHandler : IRegistrarHandler
     {
         private UserManager<ApplicationUser> _userManager;
 
@@ -22,6 +23,8 @@ namespace MeuDinheiro.Identidade.Api.Identidade.Registrar
             var currenUser = new ApplicationUser();
             currenUser.Email = command.Email;
             currenUser.UserName = command.Nome;
+            currenUser.Nome = command.Nome;
+            currenUser.Apelido = command.Nome;
             
             var userCreated = _userManager.CreateAsync(currenUser, command.Senha);
             userCreated.Wait();

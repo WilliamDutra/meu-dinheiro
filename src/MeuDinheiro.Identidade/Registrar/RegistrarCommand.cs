@@ -1,6 +1,6 @@
 ﻿using MeuDinheiro.Shared;
 
-namespace MeuDinheiro.Identidade.Api.Identidade.Registrar
+namespace MeuDinheiro.Identidade.Registrar
 {
     public class RegistrarCommand : Command
     {

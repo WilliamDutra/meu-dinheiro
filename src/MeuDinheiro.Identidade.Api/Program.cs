@@ -1,9 +1,7 @@
 using System;
-using Microsoft.AspNetCore.Identity;
+using System.Text;
+using MeuDinheiro.Identidade.Identity;
 using Microsoft.EntityFrameworkCore;
-using MeuDinheiro.Identidade.Api.Identidade;
-using MeuDinheiro.Identidade.Api.Identidade.Login;
-using MeuDinheiro.Identidade.Api.Identidade.Registrar;
 
 namespace MeuDinheiro.Identidade.Api
 {
@@ -16,10 +14,11 @@ namespace MeuDinheiro.Identidade.Api
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
-                            .AddIdentityCookies();
 
-            builder.Services.AddDbContext<IdentidadeDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+            builder.Services.AddIdentitdadeContext(builder.Configuration);
+            builder.Services.AddIdentidadeJWT(builder.Configuration);
+            builder.Services.AddIdentidade();
+            builder.Services.AddHandlers();
 
             builder.Services.AddCors(options =>
             {
@@ -32,16 +31,7 @@ namespace MeuDinheiro.Identidade.Api
                 });
             });
 
-            builder.Services.AddScoped<RegistrarCommandHandler>();
-            builder.Services.AddScoped<LoginCommandHandler>();
-
-            builder.Services
-                   .AddIdentityCore<ApplicationUser>()
-                   .AddRoles<IdentityRole<long>>()
-                   .AddEntityFrameworkStores<IdentidadeDbContext>();
-
             builder.Services.AddAuthorization();
-
 
             var app = builder.Build();
 

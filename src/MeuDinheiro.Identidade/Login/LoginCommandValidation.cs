@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace MeuDinheiro.Identidade.Api.Identidade.Login
+namespace MeuDinheiro.Identidade.Login
 {
     public class LoginCommandValidation  : AbstractValidator<LoginCommand>
     {

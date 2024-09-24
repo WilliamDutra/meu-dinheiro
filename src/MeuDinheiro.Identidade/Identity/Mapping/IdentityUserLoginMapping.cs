@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MeuDinheiro.Identidade.Api.Identidade
+namespace MeuDinheiro.Identidade.Identity.Mapping
 {
     public class IdentityUserLoginMapping : IEntityTypeConfiguration<IdentityUserLogin<long>>
     {

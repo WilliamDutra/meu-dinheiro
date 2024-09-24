@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace MeuDinheiro.Identidade.Api.Identidade.Registrar
+namespace MeuDinheiro.Identidade.Registrar
 {
     public class RegistrarCommandValidation : AbstractValidator<RegistrarCommand>
     {

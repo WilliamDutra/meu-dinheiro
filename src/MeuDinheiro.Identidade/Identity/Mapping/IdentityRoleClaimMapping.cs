@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace MeuDinheiro.Identidade.Api.Identidade
+namespace MeuDinheiro.Identidade.Identity.Mapping
 {
     public class IdentityRoleClaimMapping: IEntityTypeConfiguration<IdentityRoleClaim<long>>
     {
