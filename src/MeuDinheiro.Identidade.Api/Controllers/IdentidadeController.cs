@@ -1,6 +1,6 @@
-using MeuDinheiro.Identidade.Api.Identidade;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MeuDinheiro.Identidade.Api.Identidade.Registrar;
+using MeuDinheiro.Identidade.Api.Identidade.Login;
 
 namespace MeuDinheiro.Identidade.Api.Controllers
 {
@@ -11,28 +11,37 @@ namespace MeuDinheiro.Identidade.Api.Controllers
      
         private readonly ILogger<IdentidadeController> _logger;
 
-        private UserManager<ApplicationUser> _userManager;
+        private RegistrarCommandHandler _registrarHandler;
 
-        public IdentidadeController(ILogger<IdentidadeController> logger, UserManager<ApplicationUser> userManager)
+        private LoginCommandHandler _loginHandler;
+        
+        public IdentidadeController(ILogger<IdentidadeController> logger, RegistrarCommandHandler registrarHandler, LoginCommandHandler loginHandler)
         {
             _logger = logger;
-            _userManager = userManager;
+            _registrarHandler = registrarHandler;
+            _loginHandler = loginHandler;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Cadastrar(RegisterCommand command)
+        [Route("registrar")]
+        public IActionResult Cadastrar(RegistrarCommand command)
         {
-            var user = await _userManager.CreateAsync(new ApplicationUser { UserName =command.Email,  Email = command.Email, PasswordHash = command.Password });
-            if (!user.Succeeded)
-                return BadRequest(user.Errors);
-            return Ok(user);
+            var resultado = _registrarHandler.Handle(command);
+            if (!resultado.IsSuccess)
+                return BadRequest(resultado.Message);
+            return Ok(resultado.Message);
+        }
+
+        [HttpPost]
+        [Route("entrar")]
+        public IActionResult Cadastrar(LoginCommand command)
+        {
+            var resultado = _loginHandler.Handle(command);
+            if (!resultado.IsSuccess)
+                return BadRequest(resultado.Message);
+            return Ok(resultado.Message);
         }
     }
 
-    public class RegisterCommand
-    {
-        public string Email { get; set; }
-
-        public string Password { get; set; }
-    }
+    
 }

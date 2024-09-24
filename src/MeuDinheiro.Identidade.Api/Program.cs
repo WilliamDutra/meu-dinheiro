@@ -1,7 +1,9 @@
-using MeuDinheiro.Identidade.Api.Identidade;
+using System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
+using MeuDinheiro.Identidade.Api.Identidade;
+using MeuDinheiro.Identidade.Api.Identidade.Login;
+using MeuDinheiro.Identidade.Api.Identidade.Registrar;
 
 namespace MeuDinheiro.Identidade.Api
 {
@@ -18,6 +20,9 @@ namespace MeuDinheiro.Identidade.Api
                             .AddIdentityCookies();
 
             builder.Services.AddDbContext<IdentidadeDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+
+            builder.Services.AddScoped<RegistrarCommandHandler>();
+            builder.Services.AddScoped<LoginCommandHandler>();
 
             builder.Services
                    .AddIdentityCore<ApplicationUser>()
