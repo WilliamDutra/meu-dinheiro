@@ -21,6 +21,17 @@ namespace MeuDinheiro.Identidade.Api
 
             builder.Services.AddDbContext<IdentidadeDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("cors", (opt) =>
+                {
+                    opt.WithOrigins("https://localhost:7122")
+                       .AllowCredentials()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+                });
+            });
+
             builder.Services.AddScoped<RegistrarCommandHandler>();
             builder.Services.AddScoped<LoginCommandHandler>();
 
@@ -35,6 +46,8 @@ namespace MeuDinheiro.Identidade.Api
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+
+            app.UseCors("cors");
 
             app.UseHttpsRedirection();
 
